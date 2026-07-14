@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spoluchata.cz – Chytré a férové sdílení chat a chalup</title>
+    <!-- Tailwind CSS pro moderní a rychlý design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: {
+                            50: '#f2f7f4',
+                            100: '#e1ebe5',
+                            600: '#2d5a27', /* Hlavní lesní zelená */
+                            700: '#22441e',
+                            900: '#132711',
+                        },
+                        cozy: {
+                            50: '#faf8f5',  /* Teplé krémové pozadí */
+                            100: '#f5efe6',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons pro čisté moderní ikony -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-cozy-50 text-gray-800 font-sans antialiased selection:bg-forest-100 selection:text-forest-700">
+
+    <!-- HLAVIČKA / NAVIGACE -->
+    <header class="border-b border-gray-200/80 bg-cozy-50/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i data-lucide="home" class="w-6 h-6 text-forest-600"></i>
+                <span class="font-bold text-xl tracking-tight text-forest-900">Spoluchata<span class="text-forest-600">.cz</span></span>
+            </div>
+            <a href="#join" class="bg-forest-600 hover:bg-forest-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors shadow-sm">
+                Chci ušetřit
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SEKCE -->
+    <section class="py-12 md:py-24 max-w-6xl mx-auto px-4 grid md:grid-cols-12 gap-12 items-center">
+        <div class="md:col-span-7 space-y-6 text-center md:text-left">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-forest-100 text-forest-700 text-xs font-semibold tracking-wide uppercase">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Budoucnost chataření je sdílená
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-forest-900 leading-tight tracking-tight">
+                Chata, kterou opravdu využijete. <span class="text-forest-600">Za čtvrtinu ceny.</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto md:mx-0">
+                Spojte se s prověřenými lidmi, sdílejte náklady na celoroční pronájem chalupy a nechte chytrou technologii (IoT), aby spravedlivě rozpočítala energie i úklid.
+            </p>
+            
+            <!-- Formulář pro sběr e-mailů -->
+            <form id="lead-form-hero" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto md:mx-0 pt-2">
+                <input type="email" placeholder="Zadejte váš e-mail..." required 
+                    class="px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-forest-600 focus:border-transparent flex-grow bg-white text-base shadow-sm">
+                <button type="submit" class="bg-forest-600 hover:bg-forest-700 text-white font-semibold px-6 py-3 rounded-xl transition-all shadow-sm hover:shadow flex items-center justify-center gap-2">
+                    Zkusit to <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+            </form>
+            <p class="text-xs text-gray-500">Bez spamu. Dáme vám vědět, až projekt v okolí odstartuje.</p>
+        </div>
+
+        <!-- Obrázek / Vizualizace v Hero -->
+        <div class="md:col-span-5 relative">
+            <div class="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-forest-100 to-cozy-100 blur-xl opacity-70"></div>
+            <div class="relative bg-white p-6 rounded-2xl border border-gray-100 shadow-xl space-y-6">
+                <!-- Simulace chytré aplikace na chatě -->
+                <div class="flex items-center justify-between border-b pb-4">
+                    <div>
+                        <p class="text-xs text-gray-500">Aktuální pobyt</p>
+                        <h4 class="font-bold text-gray-900">Rodina Novákova (Tým A)</h4>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-full bg-green-100 text-green-800 text-xs font-semibold">Aktivní</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-3 bg-cozy-50 rounded-xl border border-gray-100">
+                        <div class="flex items-center gap-2 text-forest-600 mb-1">
+                            <i data-lucide="zap" class="w-4 h-4"></i>
+                            <span class="text-xs font-medium uppercase tracking-wider text-gray-500">Elektřina</span>
+                        </div>
+                        <p class="text-xl font-bold text-gray-900">14.2 kWh</p>
+                    </div>
+                    <div class="p-3 bg-cozy-50 rounded-xl border border-gray-100">
+                        <div class="flex items-center gap-2 text-blue-600 mb-1">
+                            <i data-lucide="droplet" class="w-4 h-4"></i>
+                            <span class="text-xs font-medium uppercase tracking-wider text-gray-500">Voda</span>
+                        </div>
+                        <p class="text-xl font-bold text-gray-900">120 litrů</p>
+                    </div>
+                </div>
+                <div class="bg-forest-50 p-3.5 rounded-xl border border-forest-100 flex items-center justify-between text-sm">
+                    <span class="text-forest-900 font-medium flex items-center gap-2">
+                        <i data-lucide="key-round" class="w-4 h-4 text-forest-600"></i> Aktivní PIN kód
+                    </span>
+                    <code class="font-mono bg-white px-2 py-1 rounded border font-semibold text-forest-700">#4892</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="max-w-6xl mx-auto border-gray-200">
+
+    <!-- BENEFITY -->
+    <section class="py-20 max-w-6xl mx-auto px-4">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2 class="text-3xl font-extrabold text-forest-900 sm:text-4xl">Proč jít do sdílené chaty s námi?</h2>
+            <p class="mt-4 text-lg text-gray-600">Vyřešili jsme všechny starosti, které vás od sdíleného chataření dosud odrazovaly.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+            <!-- Benefit 1 -->
+            <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow space-y-4">
+                <div class="w-12 h-12 rounded-xl bg-forest-100 text-forest-600 flex items-center justify-center">
+                    <i data-lucide="piggy-bank" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900">Zlomkové náklady</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Platíte pouze 1/4 nájmu a poplatků. Zbylých 270 dní v roce, kdy by chata zela prázdnotou, využívají vaši parťáci.
+                </p>
+            </div>
+
+            <!-- Benefit 2 -->
+            <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow space-y-4">
+                <div class="w-12 h-12 rounded-xl bg-forest-100 text-forest-600 flex items-center justify-center">
+                    <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900">Chytré a férové měření</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Senzory automaticky změří spotřebu elektřiny, vody i plynu během vašeho pobytu a aplikace vám na korunu přesně vystaví vyúčtování.
+                </p>
+            </div>
+
+            <!-- Benefit 3 -->
+            <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow space-y-4">
+                <div class="w-12 h-12 rounded-xl bg-forest-100 text-forest-600 flex items-center justify-center">
+                    <i data-lucide="shield-check" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900">Právní jistota</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Připravili jsme neprůstřelné vzory spolunájemních smluv, abyste měli jistotu, že případný výpadek jednoho člena neohrozí vaši dovolenou.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JAK TO FUNGUJE -->
+    <section class="py-20 bg-cozy-100">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-extrabold text-forest-900 sm:text-4xl">Jak to funguje?</h2>
+                <p class="mt-4 text-lg text-gray-600">Cesta k vaší vysněné chatě ve třech jednoduchých krocích.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 relative">
+                <!-- Krok 1 -->
+                <div class="flex flex-col items-center text-center space-y-4">
+                    <div class="w-16 h-16 rounded-full bg-white text-forest-600 border border-gray-200 flex items-center justify-center text-2xl font-bold shadow-sm">
+                        1
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">Propojíme vás</h3>
+                    <p class="text-gray-600 text-sm max-w-xs leading-relaxed">
+                        Pomocí platformy najdeme 3 další rodiny nebo jednotlivce s podobným životním stylem, se kterými si sednete.
+                    </p>
+                </div>
+
+                <!-- Krok 2 -->
+                <div class="flex flex-col items-center text-center space-y-4">
+                    <div class="w-16 h-16 rounded-full bg-white text-forest-600 border border-gray-200 flex items-center justify-center text-2xl font-bold shadow-sm">
+                        2
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">Vybereme chatu</h3>
+                    <p class="text-gray-600 text-sm max-w-xs leading-relaxed">
+                        Společně si vybereme chatu k dlouhodobému pronájmu v lokalitě, kterou máte rádi. Smlouvy zajistíme my.
+                    </p>
+                </div>
+
+                <!-- Krok 3 -->
+                <div class="flex flex-col items-center text-center space-y-4">
+                    <div class="w-16 h-16 rounded-full bg-white text-forest-600 border border-gray-200 flex items-center justify-center text-2xl font-bold shadow-sm">
+                        3
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">Sdílíte bez starostí</h3>
+                    <p class="text-gray-600 text-sm max-w-xs leading-relaxed">
+                        Termíny si spravedlivě dělíte v aplikaci. Odemknete mobilem přes unikátní PIN, zaplatíte jen to, co spotřebujete.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECHNOLOGIE (IoT) -->
+    <section class="py-20 max-w-6xl mx-auto px-4">
+        <div class="bg-forest-900 rounded-3xl text-white p-8 md:p-16 grid md:grid-cols-12 gap-8 items-center overflow-hidden relative">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-forest-700 via-forest-900 to-forest-900 opacity-50"></div>
+            
+            <div class="md:col-span-7 space-y-6 relative z-10">
+                <span class="text-forest-100 font-semibold tracking-wider text-sm uppercase">IoT integrace</span>
+                <h2 class="text-3xl sm:text-4xl font-bold leading-tight">Zcela bezobslužná chata poháněná Home Assistantem</h2>
+                <p class="text-forest-100/80 leading-relaxed text-base sm:text-lg">
+                    Díky propojení s chytrou domácností se nemusíte s nikým potkávat a předávat si klíče. Chata sama ví, kdo přijíždí, předem vám zatopí a při odjezdu zkontroluje, že je zamčeno.
+                </p>
+                <ul class="space-y-3 text-sm text-forest-100/90">
+                    <li class="flex items-center gap-2.5">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-forest-100"></i> Automatické temperování a vytápění před příjezdem
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-forest-100"></i> Detekce prasklé vody nebo zapomenutého otevřeného okna
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-forest-100"></i> Možnost objednat společný úklid jedním kliknutím v aplikaci
+                    </li>
+                </ul>
+            </div>
+            <div class="md:col-span-5 relative z-10 flex justify-center">
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 w-full max-w-sm space-y-4">
+                    <div class="flex items-center gap-2 text-forest-100">
+                        <i data-lucide="smartphone" class="w-5 h-5"></i>
+                        <span class="font-semibold text-sm">Chytré funkce chaty</span>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="bg-white/5 p-2.5 rounded-lg flex items-center justify-between text-xs">
+                            <span>Vytápění (obývák)</span>
+                            <span class="font-bold text-green-400">Připravuje se (21 °C)</span>
+                        </div>
+                        <div class="bg-white/5 p-2.5 rounded-lg flex items-center justify-between text-xs">
+                            <span>Hlavní uzávěr vody</span>
+                            <span class="font-bold">Otevřen</span>
+                        </div>
+                        <div class="bg-white/5 p-2.5 rounded-lg flex items-center justify-between text-xs">
+                            <span>Zabezpečení objektu</span>
+                            <span class="font-bold text-amber-400">Deaktivováno hostem</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZÁVĚREČNÉ CTA (Sběr kontaktů) -->
+    <section id="join" class="py-20 bg-cozy-100">
+        <div class="max-w-4xl mx-auto px-4 text-center space-y-8">
+            <h2 class="text-3xl font-extrabold text-forest-900 sm:text-4xl">Chcete být u zrodu Spoluchata.cz?</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Právě dáváme dohromady první skupiny zájemců. Zadejte svůj e-mail a získejte přednostní právo na výběr lokality a vzory smluv ke stažení zdarma.
+            </p>
+            
+            <div class="bg-white p-6 md:p-8 rounded-3xl border border-gray-100 shadow-xl max-w-md mx-auto">
+                <form id="lead-form-footer" class="space-y-4">
+                    <input type="email" id="footer-email" placeholder="Váš nejlepší e-mail..." required 
+                        class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-forest-600 focus:border-transparent bg-cozy-50 text-base">
+                    <button type="submit" class="w-full bg-forest-600 hover:bg-forest-700 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-sm flex items-center justify-center gap-2">
+                        Registrovat se nezávazně
+                    </button>
+                </form>
+                <div id="success-message" class="hidden text-green-700 bg-green-50 p-4 rounded-xl border border-green-100 mt-4 text-sm font-medium">
+                    🎉 Skvělé! Váš e-mail byl úspěšně zaznamenán. Brzy se ozveme s prvními kroky.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-forest-900 text-forest-100/70 py-12 border-t border-forest-700">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <i data-lucide="home" class="w-5 h-5 text-forest-100"></i>
+                <span class="font-bold text-lg text-white">Spoluchata.cz</span>
+            </div>
+            <p class="text-sm text-center md:text-right">&copy; 2026 Spoluchata.cz. Všechna práva vyhrazena. Postaveno pro komunitní chataření.</p>
+        </div>
+    </footer>
+
+    <!-- LOGIKA PRO IKONY A FORMULÁŘ -->
+    <script>
+        // Inicializace ikon Lucide
+        lucide.createIcons();
+
+        // Jednoduchá simulace odeslání formuláře
+        const handleFormSubmit = (e) => {
+            e.preventDefault();
+            const emailInput = e.target.querySelector('input[type="email"]');
+            
+            if (emailInput && emailInput.value) {
+                console.log('Zaznamenán e-mail:', emailInput.value);
+                
+                // Pokud formulář odesíláme v patičce, zobrazíme hezké potvrzení
+                if(e.target.id === 'lead-form-footer') {
+                    document.getElementById('success-message').classList.remove('hidden');
+                    e.target.classList.add('hidden');
+                } else {
+                    alert('Děkujeme za zájem! Váš e-mail (' + emailInput.value + ') byl zaznamenán.');
+                    emailInput.value = '';
+                }
+            }
+        };
+
+        document.getElementById('lead-form-hero').addEventListener('submit', handleFormSubmit);
+        document.getElementById('lead-form-footer').addEventListener('submit', handleFormSubmit);
+    </script>
+</body>
+</html>
