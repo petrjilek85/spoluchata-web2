@@ -279,32 +279,65 @@
         </div>
     </footer>
 
-    <!-- LOGIKA PRO IKONY A FORMULÁŘ -->
+    <!-- LOGIKA PRO IKONY A FUNKČNÍ SBĚR EMAILŮ (Web3Forms) -->
     <script>
         // Inicializace ikon Lucide
         lucide.createIcons();
 
-        // Jednoduchá simulace odeslání formuláře
-        const handleFormSubmit = (e) => {
+        // Tvůj ověřený přístupový klíč z Web3Forms
+        const WEB3FORMS_KEY = "9ae4c9a3-2724-4a93-9838-efdf3c44f9cc";
+
+        async function submitToWeb3Forms(email, formElement, successMessageElement) {
+            const formData = new FormData();
+            formData.append("access_key", WEB3FORMS_KEY);
+            formData.append("email", email);
+            formData.append("subject", "Nový zájemce o Spoluchata.cz!");
+            formData.append("from_name", "Web Spoluchata.cz");
+
+            try {
+                const response = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Úspěšně odesláno
+                    if (successMessageElement) {
+                        successMessageElement.classList.remove('hidden');
+                        formElement.classList.add('hidden');
+                    } else {
+                        alert('Skvělé! Váš e-mail byl úspěšně zaznamenán. Brzy se ozveme.');
+                        formElement.reset();
+                    }
+                } else {
+                    alert('Něco se nepovedlo. Zkuste to prosím znovu nebo nás kontaktujte.');
+                }
+            } catch (error) {
+                console.error("Chyba při odesílání:", error);
+                alert('Chyba spojení. Zkontrolujte připojení k internetu.');
+            }
+        }
+
+        // Formulář v HERO sekci
+        document.getElementById('lead-form-hero').addEventListener('submit', function(e) {
             e.preventDefault();
             const emailInput = e.target.querySelector('input[type="email"]');
-            
             if (emailInput && emailInput.value) {
-                console.log('Zaznamenán e-mail:', emailInput.value);
-                
-                // Pokud formulář odesíláme v patičce, zobrazíme hezké potvrzení
-                if(e.target.id === 'lead-form-footer') {
-                    document.getElementById('success-message').classList.remove('hidden');
-                    e.target.classList.add('hidden');
-                } else {
-                    alert('Děkujeme za zájem! Váš e-mail (' + emailInput.value + ') byl zaznamenán.');
-                    emailInput.value = '';
-                }
+                submitToWeb3Forms(emailInput.value, e.target, null);
             }
-        };
+        });
 
-        document.getElementById('lead-form-hero').addEventListener('submit', handleFormSubmit);
-        document.getElementById('lead-form-footer').addEventListener('submit', handleFormSubmit);
+        // Formulář v patičce (zobrazuje hezké zelené potvrzení přímo na stránce)
+        document.getElementById('lead-form-footer').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('footer-email');
+            const successMsg = document.getElementById('success-message');
+            if (emailInput && emailInput.value) {
+                submitToWeb3Forms(emailInput.value, e.target, successMsg);
+            }
+        });
     </script>
 </body>
 </html>
