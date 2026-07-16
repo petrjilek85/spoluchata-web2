@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dotazník spoluchataře – Spoluchata.cz</title>
+    <title>Podrobný dotazník spoluchataře – Spoluchata.cz</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -37,7 +37,7 @@
                 <i data-lucide="arrow-left" class="w-5 h-5 text-gray-600"></i>
                 <span class="font-bold text-lg text-forest-900">Spoluchata<span class="text-forest-600">.cz</span></span>
             </a>
-            <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Párovací dotazník</span>
+            <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Hloubkový párovací dotazník</span>
         </div>
     </header>
 
@@ -48,11 +48,11 @@
             <!-- Indikátor průběhu -->
             <div class="mb-8">
                 <div class="flex justify-between text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
-                    <span id="step-title">Krok 1 z 4: O vás a vaší posádce</span>
-                    <span id="step-percent">25%</span>
+                    <span id="step-title">Krok 1 z 5: Osobní profil & Demografie</span>
+                    <span id="step-percent">20%</span>
                 </div>
                 <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
-                    <div id="step-bar" class="bg-forest-600 h-full w-1/4 transition-all duration-300"></div>
+                    <div id="step-bar" class="bg-forest-600 h-full w-1/5 transition-all duration-300"></div>
                 </div>
             </div>
 
@@ -60,14 +60,14 @@
             <form id="matching-form" class="space-y-6">
                 <!-- Skryté parametry pro Web3Forms -->
                 <input type="hidden" name="access_key" value="9ae4c9a3-2724-4a93-9838-efdf3c44f9cc">
-                <input type="hidden" name="subject" value="Nový detailní dotazník - Spoluchata.cz">
-                <input type="hidden" name="from_name" value="Dotazník Spoluchata.cz">
+                <input type="hidden" name="subject" value="Nový detailní hloubkový dotazník - Spoluchata.cz">
+                <input type="hidden" name="from_name" value="Hloubkový dotazník Spoluchata.cz">
 
-                <!-- ================= KROK 1: O VÁS ================= -->
+                <!-- ================= KROK 1: OSOBNÍ PROFIL ================= -->
                 <div id="step-1" class="step-section space-y-6">
                     <div class="space-y-2">
-                        <h2 class="text-2xl font-bold text-forest-900">Představte se nám</h2>
-                        <p class="text-sm text-gray-500">Chceme vědět, s kým budeme chatu sdílet. Tyto informace jsou klíčem k bezproblémovému soužití.</p>
+                        <h2 class="text-2xl font-bold text-forest-900">Osobní profil</h2>
+                        <p class="text-sm text-gray-500">Základní sociodemografické otázky, které nám pomohou vytvořit intelektuálně a generačně vyvážené skupiny.</p>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -81,12 +81,47 @@
                         </div>
                     </div>
 
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="space-y-1">
+                            <label class="text-sm font-semibold text-gray-700">Váš věk</label>
+                            <input type="number" name="Vek" required min="18" max="99" placeholder="Např. 35" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-forest-600 focus:outline-none">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-sm font-semibold text-gray-700">Dosažené vzdělání</label>
+                            <select name="Vzdelani" required class="w-full p-3 rounded-xl border border-gray-300 bg-white focus:ring-2 focus:ring-forest-600 focus:outline-none">
+                                <option value="" disabled selected>Vyberte...</option>
+                                <option value="Stredoskolske bez maturity">Středoškolské bez maturity</option>
+                                <option value="Stredoskolske s maturitou">Středoškolské s maturitou</option>
+                                <option value="Vysokoskolske (Bc. / Mgr. / Ing. / Dr.)">Vysokoškolské</option>
+                                <option value="Jine">Jiné / Nechci uvádět</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="text-sm font-semibold text-gray-700">V jakém oboru pracujete nebo podnikáte?</label>
+                        <input type="text" name="Obor_pusobeni" required placeholder="Např. IT, zdravotnictví, školství, řemeslo..." class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-forest-600 focus:outline-none">
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="text-sm font-semibold text-gray-700">Vaše hlavní zájmy a koníčky</label>
+                        <textarea name="Zajmy_a_konicky" required rows="2" placeholder="Např. turistika, četba, vaření, zahradničení, kutilství, hudba..." class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-forest-600 focus:outline-none text-sm"></textarea>
+                    </div>
+                </div>
+
+                <!-- ================= KROK 2: SLOŽENÍ POSÁDKY & ZVÍŘATA ================= -->
+                <div id="step-2" class="step-section hidden space-y-6">
+                    <div class="space-y-2">
+                        <h2 class="text-2xl font-bold text-forest-900">Kdo s vámi bude jezdit?</h2>
+                        <p class="text-sm text-gray-500">Zjistíme, jak moc bude chata během vašich dnů vytížená a jaké nároky vaše posádka má.</p>
+                    </div>
+
                     <div class="space-y-3">
-                        <label class="text-sm font-semibold text-gray-700 block">Kdo s vámi bude na chatu nejčastěji jezdit?</label>
+                        <label class="text-sm font-semibold text-gray-700 block">Kdo tvoří vaši chatařskou posádku?</label>
                         <div class="space-y-2">
                             <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer transition-colors">
                                 <input type="radio" name="Slozeni_posadky" value="Sam/V paru" required class="text-forest-600 focus:ring-forest-600">
-                                <span class="text-sm">Budu jezdit sám / v páru (bez dětí)</span>
+                                <span class="text-sm">Sám / v páru (bez dětí)</span>
                             </label>
                             <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer transition-colors">
                                 <input type="radio" name="Slozeni_posadky" value="Rodina s detmi (do 6 let)" class="text-forest-600 focus:ring-forest-600">
@@ -98,109 +133,151 @@
                             </label>
                             <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer transition-colors">
                                 <input type="radio" name="Slozeni_posadky" value="Parta pratel" class="text-forest-600 focus:ring-forest-600">
-                                <span class="text-sm">Parta přátel / kamarádi</span>
+                                <span class="text-sm">Parta přátel / kamarádi (střídání lidí)</span>
                             </label>
                         </div>
                     </div>
 
                     <div class="space-y-3">
-                        <label class="text-sm font-semibold text-gray-700 block">Budete s sebou brát domácí mazlíčky?</label>
-                        <div class="grid grid-cols-2 gap-3">
-                            <label class="flex items-center gap-2 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer transition-colors">
-                                <input type="radio" name="Mazlicci" value="Ano - Pes" required class="text-forest-600">
-                                <span class="text-sm">Ano, psa</span>
+                        <label class="text-sm font-semibold text-gray-700 block">Jak se stavíte k přítomnosti domácích mazlíčků?</label>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer transition-colors">
+                                <input type="radio" name="Mazlicci_vztah" value="Mam psa a chci ho brat" required class="text-forest-600">
+                                <span class="text-sm">Mám psa a chci ho brát s sebou na chatu.</span>
                             </label>
-                            <label class="flex items-center gap-2 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer transition-colors">
-                                <input type="radio" name="Mazlicci" value="Ano - Jiny" class="text-forest-600">
-                                <span class="text-sm">Ano, jiného mazlíčka</span>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer transition-colors">
+                                <input type="radio" name="Mazlicci_vztah" value="Nemam ale nevadi mi" class="text-forest-600">
+                                <span class="text-sm">Nemám zvíře, ale přítomnost zvířat ostatních mi vůbec nevadí.</span>
                             </label>
-                            <label class="flex items-center gap-2 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer transition-colors">
-                                <input type="radio" name="Mazlicci" value="Ne" class="text-forest-600">
-                                <span class="text-sm">Ne, nikdy</span>
-                            </label>
-                            <label class="flex items-center gap-2 p-3 rounded-xl border border-red-200 hover:bg-red-50/50 cursor-pointer transition-colors">
-                                <input type="radio" name="Mazlicci" value="Alergik - Striktne BEZ" class="text-forest-600">
-                                <span class="text-sm text-red-700 font-medium">Striktně bez (alergie)</span>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border border-red-200 hover:bg-red-50/50 cursor-pointer transition-colors">
+                                <input type="radio" name="Mazlicci_vztah" value="Alergik - Striktne bez" class="text-forest-600">
+                                <span class="text-sm text-red-700 font-medium">Mám alergii / striktně vyžaduji chatu bez jakýchkoliv zvířat.</span>
                             </label>
                         </div>
                     </div>
                 </div>
 
-                <!-- ================= KROK 2: ŽIVOTNÍ STYL ================= -->
-                <div id="step-2" class="step-section hidden space-y-6">
-                    <div class="space-y-2">
-                        <h2 class="text-2xl font-bold text-forest-900">Styl chataření a soužití</h2>
-                        <p class="text-sm text-gray-500">Jak na chatě trávíte čas a jak vnímáte pořádek a klid?</p>
-                    </div>
-
-                    <div class="space-y-3">
-                        <label class="text-sm font-semibold text-gray-700 block">Jaký je váš hlavní cíl pobytu? (Vyberte max. 2)</label>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <label class="flex items-center gap-2.5 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
-                                <input type="checkbox" name="Aktivity" value="Absolutni klid" class="rounded text-forest-600">
-                                <span class="text-sm">Klid, knížka, odpočinek</span>
-                            </label>
-                            <label class="flex items-center gap-2.5 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
-                                <input type="checkbox" name="Aktivity" value="Home Office / Prace" class="rounded text-forest-600">
-                                <span class="text-sm">Práce na dálku (Home Office)</span>
-                            </label>
-                            <label class="flex items-center gap-2.5 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
-                                <input type="checkbox" name="Aktivity" value="Sport / Turistika" class="rounded text-forest-600">
-                                <span class="text-sm">Sport, turistika, kola, lyže</span>
-                            </label>
-                            <label class="flex items-center gap-2.5 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
-                                <input type="checkbox" name="Aktivity" value="Grilovani / Akce s prateli" class="rounded text-forest-600">
-                                <span class="text-sm">Grilování a akce s přáteli</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="space-y-3">
-                        <label class="text-sm font-semibold text-gray-700 block">Jak se stavíte k úklidu na chatě?</label>
-                        <div class="space-y-2">
-                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
-                                <input type="radio" name="Uklid" value="Perfekcionista" required class="text-forest-600">
-                                <span class="text-sm"><strong>Perfekcionista:</strong> Chci chatu předat čistší, než jsem ji přebral.</span>
-                            </label>
-                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
-                                <input type="radio" name="Uklid" value="Zlaty stred" class="text-forest-600">
-                                <span class="text-sm"><strong>Zlatý střed:</strong> Standardní úklid (vysát, setřít, umýt nádobí), žádné hrocení.</span>
-                            </label>
-                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
-                                <input type="radio" name="Uklid" value="Placena sluzba" class="text-forest-600">
-                                <span class="text-sm"><strong>Bezstarostný:</strong> Preferuji zaplatit si po každém pobytu profesionální úklid.</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="space-y-3">
-                        <label class="text-sm font-semibold text-gray-700 block">Jak vnímáte hluk a party na chatě?</label>
-                        <div class="space-y-2">
-                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
-                                <input type="radio" name="Hluk_tolerance" value="Nizka - chci ticho" required class="text-forest-600">
-                                <span class="text-sm"><strong>Chci ticho:</strong> Hledám oázu klidu, večer vyžaduji absolutní klid (vhodné pro sousedy).</span>
-                            </label>
-                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
-                                <input type="radio" name="Hluk_tolerance" value="Stredni - bežny provoz" class="text-forest-600">
-                                <span class="text-sm"><strong>Běžný provoz:</strong> Hudba u grilu mi nevadí, ale žádné divoké noční akce.</span>
-                            </label>
-                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
-                                <input type="radio" name="Hluk_tolerance" value="Vysoka - rad se bavim" class="text-forest-600">
-                                <span class="text-sm"><strong>Rád se bavím:</strong> Chata je pro mě místo na oslavy, hlasitá hudba do noci je v pořádku.</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ================= KROK 3: PREFERENCE CHATY ================= -->
+                <!-- ================= KROK 3: SEZÓNNOST & ČASOVÉ PREFERENCE ================= -->
                 <div id="step-3" class="step-section hidden space-y-6">
                     <div class="space-y-2">
-                        <h2 class="text-2xl font-bold text-forest-900">Vysněná chata a lokalita</h2>
-                        <p class="text-sm text-gray-500">Kam byste nejraději jezdili a jaký standard očekáváte?</p>
+                        <h2 class="text-2xl font-bold text-forest-900">Časové preference a sezónnost</h2>
+                        <p class="text-sm text-gray-500">Jak často a v jakém období plánujete chatu reálně využívat?</p>
                     </div>
 
                     <div class="space-y-3">
-                        <label class="text-sm font-semibold text-gray-700 block">Jak daleko jste ochotni na chatu dojíždět?</label>
+                        <label class="text-sm font-semibold text-gray-700 block">Kdy chcete na chatu primárně jezdit?</label>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
+                                <input type="radio" name="Cas_dny" value="Pouze vikendy" required class="text-forest-600">
+                                <span class="text-sm"><strong>Pouze víkendy</strong> (pátek odpoledne až neděle večer)</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
+                                <input type="radio" name="Cas_dny" value="Vikendy i vsedni dny" class="text-forest-600">
+                                <span class="text-sm"><strong>Více flexibility:</strong> Chci tam trávit i všední dny (např. práce na dálku)</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
+                                <input type="radio" name="Cas_dny" value="Delsi ucelene bloky" class="text-forest-600">
+                                <span class="text-sm"><strong>Dlouhé bloky:</strong> Preferuji jezdit méně často, ale na celý týden v kuse</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <label class="text-sm font-semibold text-gray-700 block">Jak vidíte využití chaty v průběhu roku?</label>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
+                                <input type="radio" name="Sezonnost" value="Celoročne" required class="text-forest-600">
+                                <span class="text-sm"><strong>Celoročně:</strong> Chci jezdit v létě i v zimě (krby, lyže, sníh)</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
+                                <input type="radio" name="Sezonnost" value="Jaro az podzim" class="text-forest-600">
+                                <span class="text-sm"><strong>Teplá sezóna:</strong> Pouze od jara do podzimu, v zimě chatu nevyužiji</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
+                                <input type="radio" name="Sezonnost" value="Zima a snih primarne" class="text-forest-600">
+                                <span class="text-sm"><strong>Zimní nadšenec:</strong> Zima je pro mě klíčová kvůli horám, léto je bonus</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="text-sm font-semibold text-gray-700">Kolik dní v měsíci průměrně plánujete na chatě strávit?</label>
+                        <select name="Pocet_dni_mesic" required class="w-full p-3 rounded-xl border border-gray-300 bg-white focus:ring-2 focus:ring-forest-600 focus:outline-none">
+                            <option value="" disabled selected>Vyberte...</option>
+                            <option value="1-4 dny">Jen občas (1–4 dny v měsíci)</option>
+                            <option value="5-8 dni">Standardně (5–8 dní v měsíci - např. 2 víkendy)</option>
+                            <option value="9 a vice dni">Velmi intenzivně (9 a více dní v měsíci)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- ================= KROK 4: STYL CHATAŘENÍ & SOCIODYNAMIKA ================= -->
+                <div id="step-4" class="step-section hidden space-y-6">
+                    <div class="space-y-2">
+                        <h2 class="text-2xl font-bold text-forest-900">Styl soužití a psychologie</h2>
+                        <p class="text-sm text-gray-500">Tady se láme chleba. Chceme pochopit vaši povahu a postoj ke komunitnímu sdílení.</p>
+                    </div>
+
+                    <div class="space-y-3">
+                        <label class="text-sm font-semibold text-gray-700 block">Do jaké míry se chcete s ostatními spoluchataři přátelit?</label>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
+                                <input type="radio" name="Socialni_vztahy" value="Ciste pragmaticky" required class="text-forest-600">
+                                <span class="text-sm"><strong>Čistě pragmaticky:</strong> Chci jen sdílet chatu a náklady. Nemám potřebu se s ostatními vídat mimo nezbytnou domluvu.</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
+                                <input type="radio" name="Socialni_vztahy" value="Zlaty stred - obcasne kafe" class="text-forest-600">
+                                <span class="text-sm"><strong>Přátelský respekt:</strong> Rád ostatní poznám, občas se potkáme na kávě při předávání, ale jinak si žijeme své životy.</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
+                                <input type="radio" name="Socialni_vztahy" value="Komunitni - spolecne akce" class="text-forest-600">
+                                <span class="text-sm"><strong>Komunitní duše:</strong> Těším se, že budeme jedna parta. Klidně uděláme občas společný víkend, brigádu nebo grilovačku.</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <label class="text-sm font-semibold text-gray-700 block">Jak vnímáte sdílení věcí na chatě (např. káva, koření, drogerie, sportovní náčiní)?</label>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
+                                <input type="radio" name="Sdileni_veci" value="Striktne vlastni" required class="text-forest-600">
+                                <span class="text-sm"><strong>Striktně vlastní:</strong> Chci mít svůj označený box/skříňku, ostatní věci nepoužívám a nepůjčuji.</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
+                                <input type="radio" name="Sdileni_veci" value="Sdilene zaklady" class="text-forest-600">
+                                <span class="text-sm"><strong>Sdílené základy:</strong> Základní věci (sůl, olej, toaletní papír) kupujeme společně, zbytek máme vlastní.</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
+                                <input type="radio" name="Sdileni_veci" value="Sdilim vse" class="text-forest-600">
+                                <span class="text-sm"><strong>Všechno společné:</strong> Nemám problém sdílet cokoliv, co na chatě nechám, pokud to ostatní neničí.</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <label class="text-sm font-semibold text-gray-700 block">Označte tvrzení, které vás nejlépe vystihuje:</label>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
+                                <input type="radio" name="Intro_extro" value="Introvert" required class="text-forest-600">
+                                <span class="text-sm">Spíše introvert – na chatě dobíjím baterky o samotě v tichu.</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
+                                <input type="radio" name="Intro_extro" value="Extrovert" class="text-forest-600">
+                                <span class="text-sm">Spíše extrovert – chata je pro mě společenské místo plné podnětů.</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= KROK 5: LOKALITA, STANDARD & ROZPOČET ================= -->
+                <div id="step-5" class="step-section hidden space-y-6">
+                    <div class="space-y-2">
+                        <h2 class="text-2xl font-bold text-forest-900">Lokalita, standard a rozpočet</h2>
+                        <p class="text-sm text-gray-500">Poslední krok. Sladíme geografické a finanční možnosti.</p>
+                    </div>
+
+                    <div class="space-y-3">
+                        <label class="text-sm font-semibold text-gray-700 block">Maximální dojezdová vzdálenost z vašeho bydliště</label>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             <label class="flex items-center justify-center p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer text-center">
                                 <input type="radio" name="Dojezdova_vzdalenost" value="Do 1 hodiny" required class="sr-only peer">
@@ -218,38 +295,30 @@
                     </div>
 
                     <div class="space-y-1">
-                        <label class="text-sm font-semibold text-gray-700">Preferovaná lokalita v ČR (např. Šumava, Sázava, Krkonoše...)</label>
-                        <input type="text" name="Lokalita_preference" placeholder="Napište oblast nebo kraj..." class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-forest-600 focus:outline-none">
+                        <label class="text-sm font-semibold text-gray-700">Preferovaná lokalita v ČR (Odkud jste a kam chcete jezdit?)</label>
+                        <input type="text" name="Lokalita_preference" required placeholder="Např. Bydlím v Praze, preferuji Sázavu, Slapy nebo Brdy..." class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-forest-600 focus:outline-none">
                     </div>
 
                     <div class="space-y-3">
-                        <label class="text-sm font-semibold text-gray-700 block">Jaký standard a styl chaty hledáte?</label>
+                        <label class="text-sm font-semibold text-gray-700 block">Jaký standard chaty vyžadujete?</label>
                         <div class="space-y-2">
                             <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
                                 <input type="radio" name="Standard_chaty" value="Tradicni retro" required class="text-forest-600">
-                                <span class="text-sm"><strong>Skromná retro chalupa:</strong> Tradiční styl, dřevo, krb, klidně starší vybavení (nižší cena).</span>
+                                <span class="text-sm"><strong>Klasické retro:</strong> Dřevěnice, krb, klidně starší nábytek. Hlavní je atmosféra a příroda (nižší cena).</span>
                             </label>
                             <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
                                 <input type="radio" name="Standard_chaty" value="Moderni standard" class="text-forest-600">
-                                <span class="text-sm"><strong>Moderní chata:</strong> Plně vybavená kuchyň, stabilní internet, splachovací záchod, moderní interiér.</span>
+                                <span class="text-sm"><strong>Moderní standard:</strong> Sprcha, rychlý internet na práci, moderní kuchyň a spotřebiče.</span>
                             </label>
                             <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
                                 <input type="radio" name="Standard_chaty" value="Luxus/Wellness" class="text-forest-600">
-                                <span class="text-sm"><strong>Wellness / Nadstandard:</strong> Sauna, vířivka, prémiová lokalita, moderní design (vyšší rozpočet).</span>
+                                <span class="text-sm"><strong>Wellness / Nadstandard:</strong> Prémiový design, finská sauna, venkovní vířivka (vyšší rozpočet).</span>
                             </label>
                         </div>
                     </div>
-                </div>
-
-                <!-- ================= KROK 4: FINANCE A ODESLÁNÍ ================= -->
-                <div id="step-4" class="step-section hidden space-y-6">
-                    <div class="space-y-2">
-                        <h2 class="text-2xl font-bold text-forest-900">Finance a závazek</h2>
-                        <p class="text-sm text-gray-500">Kolik dává smysl do sdíleného chataření investovat?</p>
-                    </div>
 
                     <div class="space-y-3">
-                        <label class="text-sm font-semibold text-gray-700 block">Váš maximální měsíční rozpočet za 1/4 podíl (včetně energií)</label>
+                        <label class="text-sm font-semibold text-gray-700 block">Váš maximální měsíční rozpočet za 1/4 podíl (nájem + zálohy na energie)</label>
                         <div class="space-y-2">
                             <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
                                 <input type="radio" name="Rozpocet_mesicni" value="Do 3 000 Kc" required class="text-forest-600">
@@ -265,19 +334,14 @@
                             </label>
                             <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-forest-50/50 cursor-pointer">
                                 <input type="radio" name="Rozpocet_mesicni" value="Nad 8 000 Kc" class="text-forest-600">
-                                <span class="text-sm">Více než 8 000 Kč / měsíčně (wellness / luxus)</span>
+                                <span class="text-sm">Více než 8 000 Kč / měsíčně</span>
                             </label>
                         </div>
                     </div>
 
                     <div class="space-y-1">
-                        <label class="text-sm font-semibold text-gray-700">Máte nějakou konkrétní poznámku nebo přání? (Nepovinné)</label>
-                        <textarea name="Poznamka" rows="3" placeholder="Sem můžete napsat cokoliv dalšího, co je pro vás důležité..." class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-forest-600 focus:outline-none text-sm"></textarea>
-                    </div>
-
-                    <div class="bg-forest-50 p-4 rounded-2xl border border-forest-100 text-xs text-forest-900 space-y-1">
-                        <p class="font-semibold">Co se bude dít dál?</p>
-                        <p>Po odeslání váš profil zanalyzujeme. Jakmile v naší databázi najdeme další 3 zájemce s vysokou shodou (lokalita, rozpočet, životní styl), propojíme vás a začneme společně vybírat chatu k pronájmu.</p>
+                        <label class="text-sm font-semibold text-gray-700">Doplňující poznámka, přání nebo obavy (Nepovinné)</label>
+                        <textarea name="Poznamka" rows="3" placeholder="Sem můžete napsat cokoliv dalšího, co by budoucí spoluchataři měli o vás vědět..." class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-forest-600 focus:outline-none text-sm"></textarea>
                     </div>
                 </div>
 
@@ -301,9 +365,9 @@
                 <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
                     <i data-lucide="check" class="w-10 h-10"></i>
                 </div>
-                <h2 class="text-3xl font-bold text-forest-900">Dotazník úspěšně odeslán!</h2>
+                <h2 class="text-3xl font-bold text-forest-900">Profil úspěšně uložen!</h2>
                 <p class="text-gray-600 max-w-md mx-auto">
-                    Děkujeme za vaši důvěru a podrobné odpovědi. Váš profil jsme zařadili do databáze a začínáme hledat lidi, se kterými byste si na chalupě dokonale rozuměli.
+                    Děkujeme za váš čas a skvělé odpovědi. Vaše data jsou v bezpečí. Nyní spustíme náš algoritmus a začneme hledat lidi se shodným chatařským profilem. O výsledku vás budeme informovat na e-mail.
                 </p>
                 <a href="/" class="inline-flex items-center gap-2 text-forest-600 font-semibold hover:text-forest-700">
                     <i data-lucide="arrow-left" class="w-4 h-4"></i> Zpět na hlavní stránku
@@ -323,15 +387,16 @@
         // Inicializace ikon
         lucide.createIcons();
 
-        // Nastavení kroků formuláře
+        // Nastavení kroků formuláře (Nyní 5 kroků!)
         let currentStep = 1;
-        const totalSteps = 4;
+        const totalSteps = 5;
 
         const stepTitles = {
-            1: "Krok 1 z 4: O vás a vaší posádce",
-            2: "Krok 2 z 4: Styl chataření a soužití",
-            3: "Krok 3 z 4: Vysněná chata a lokalita",
-            4: "Krok 4 z 4: Finance a závazek"
+            1: "Krok 1 z 5: Osobní profil & Demografie",
+            2: "Krok 2 z 5: Kdo tvoří vaši posádku",
+            3: "Krok 3 z 5: Časové preference & Sezónnost",
+            4: "Krok 4 z 5: Styl chataření & Psychologie",
+            5: "Krok 5 z 5: Lokalita, standard & Rozpočet"
         };
 
         const form = document.getElementById('matching-form');
@@ -378,16 +443,19 @@
             
             for (let input of requiredInputs) {
                 if (input.type === 'radio') {
-                    // Najít všechny radio se stejným jménem v této sekci
                     const name = input.name;
                     const checked = currentSection.querySelector(`input[name="${name}"]:checked`);
                     if (!checked) {
-                        alert('Prosím, vyplňte všechny povinné otázky.');
+                        alert('Prosím, odpovězte na povinné otázky označené pro tento krok.');
                         return false;
                     }
+                } else if (input.tagName === 'SELECT' && !input.value) {
+                    input.focus();
+                    alert('Prosím, vyberte jednu z možností v rozevíracím seznamu.');
+                    return false;
                 } else if (!input.value.trim()) {
                     input.focus();
-                    alert('Prosím, vyplňte toto pole.');
+                    alert('Prosím, vyplňte toto textové pole.');
                     return false;
                 }
             }
