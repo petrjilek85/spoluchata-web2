@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spoluchata.cz – Chytré a férové sdílení chat a chalup</title>
-    <!-- Tailwind CSS pro moderní a rychlý design -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -27,25 +26,22 @@
             }
         }
     </script>
-    <!-- Lucide Icons pro čisté moderní ikony -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="bg-cozy-50 text-gray-800 font-sans antialiased selection:bg-forest-100 selection:text-forest-700">
 
-    <!-- HLAVIČKA / NAVIGACE -->
     <header class="border-b border-gray-200/80 bg-cozy-50/80 backdrop-blur sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
             <div class="flex items-center gap-2">
                 <i data-lucide="home" class="w-6 h-6 text-forest-600"></i>
                 <span class="font-bold text-xl tracking-tight text-forest-900">Spoluchata<span class="text-forest-600">.cz</span></span>
             </div>
-            <a href="#join" class="bg-forest-600 hover:bg-forest-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors shadow-sm">
+            <a href="dotaznik.html" class="bg-forest-600 hover:bg-forest-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors shadow-sm">
                 Chci ušetřit
             </a>
         </div>
     </header>
 
-    <!-- HERO SEKCE -->
     <section class="py-12 md:py-24 max-w-6xl mx-auto px-4 grid md:grid-cols-12 gap-12 items-center">
         <div class="md:col-span-7 space-y-6 text-center md:text-left">
             <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-forest-100 text-forest-700 text-xs font-semibold tracking-wide uppercase">
@@ -58,22 +54,17 @@
                 Spojte se s prověřenými lidmi, sdílejte náklady na celoroční pronájem chalupy a nechte chytrou technologii (IoT), aby spravedlivě rozpočítala energie i úklid.
             </p>
             
-            <!-- Formulář pro sběr e-mailů -->
-            <form id="lead-form-hero" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto md:mx-0 pt-2">
-                <input type="email" placeholder="Zadejte váš e-mail..." required 
-                    class="px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-forest-600 focus:border-transparent flex-grow bg-white text-base shadow-sm">
-                <button type="submit" class="bg-forest-600 hover:bg-forest-700 text-white font-semibold px-6 py-3 rounded-xl transition-all shadow-sm hover:shadow flex items-center justify-center gap-2">
-                    Zkusit to <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </button>
-            </form>
-            <p class="text-xs text-gray-500">Bez spamu. Dáme vám vědět, až projekt v okolí odstartuje.</p>
+            <div class="pt-2">
+                <a href="dotaznik.html" class="inline-flex items-center gap-2 bg-forest-600 hover:bg-forest-700 text-white font-bold px-8 py-4 rounded-xl transition-all shadow-md hover:shadow-lg text-base sm:text-lg">
+                    Vyplnit dotazník a najít parťáky <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+            <p class="text-xs text-gray-500">Zabere to 3 minuty. Na základě odpovědí vás spojíme se správnou partou.</p>
         </div>
 
-        <!-- Obrázek / Vizualizace v Hero -->
         <div class="md:col-span-5 relative">
             <div class="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-forest-100 to-cozy-100 blur-xl opacity-70"></div>
             <div class="relative bg-white p-6 rounded-2xl border border-gray-100 shadow-xl space-y-6">
-                <!-- Simulace chytré aplikace na chatě -->
                 <div class="flex items-center justify-between border-b pb-4">
                     <div>
                         <p class="text-xs text-gray-500">Aktuální pobyt</p>
@@ -109,7 +100,6 @@
 
     <hr class="max-w-6xl mx-auto border-gray-200">
 
-    <!-- BENEFITY -->
     <section class="py-20 max-w-6xl mx-auto px-4">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <h2 class="text-3xl font-extrabold text-forest-900 sm:text-4xl">Proč jít do sdílené chaty s námi?</h2>
@@ -117,7 +107,6 @@
         </div>
 
         <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
-            <!-- Benefit 1 -->
             <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow space-y-4">
                 <div class="w-12 h-12 rounded-xl bg-forest-100 text-forest-600 flex items-center justify-center">
                     <i data-lucide="piggy-bank" class="w-6 h-6"></i>
@@ -128,7 +117,6 @@
                 </p>
             </div>
 
-            <!-- Benefit 2 -->
             <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow space-y-4">
                 <div class="w-12 h-12 rounded-xl bg-forest-100 text-forest-600 flex items-center justify-center">
                     <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
@@ -139,7 +127,6 @@
                 </p>
             </div>
 
-            <!-- Benefit 3 -->
             <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow space-y-4">
                 <div class="w-12 h-12 rounded-xl bg-forest-100 text-forest-600 flex items-center justify-center">
                     <i data-lucide="shield-check" class="w-6 h-6"></i>
@@ -152,7 +139,6 @@
         </div>
     </section>
 
-    <!-- JAK TO FUNGUJE -->
     <section class="py-20 bg-cozy-100">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center max-w-2xl mx-auto mb-16">
@@ -161,7 +147,6 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 relative">
-                <!-- Krok 1 -->
                 <div class="flex flex-col items-center text-center space-y-4">
                     <div class="w-16 h-16 rounded-full bg-white text-forest-600 border border-gray-200 flex items-center justify-center text-2xl font-bold shadow-sm">
                         1
@@ -172,7 +157,6 @@
                     </p>
                 </div>
 
-                <!-- Krok 2 -->
                 <div class="flex flex-col items-center text-center space-y-4">
                     <div class="w-16 h-16 rounded-full bg-white text-forest-600 border border-gray-200 flex items-center justify-center text-2xl font-bold shadow-sm">
                         2
@@ -183,7 +167,6 @@
                     </p>
                 </div>
 
-                <!-- Krok 3 -->
                 <div class="flex flex-col items-center text-center space-y-4">
                     <div class="w-16 h-16 rounded-full bg-white text-forest-600 border border-gray-200 flex items-center justify-center text-2xl font-bold shadow-sm">
                         3
@@ -197,7 +180,6 @@
         </div>
     </section>
 
-    <!-- TECHNOLOGIE (IoT) -->
     <section class="py-20 max-w-6xl mx-auto px-4">
         <div class="bg-forest-900 rounded-3xl text-white p-8 md:p-16 grid md:grid-cols-12 gap-8 items-center overflow-hidden relative">
             <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-forest-700 via-forest-900 to-forest-900 opacity-50"></div>
@@ -245,99 +227,7 @@
         </div>
     </section>
 
-    <!-- ZÁVĚREČNÉ CTA (Sběr kontaktů) -->
     <section id="join" class="py-20 bg-cozy-100">
         <div class="max-w-4xl mx-auto px-4 text-center space-y-8">
             <h2 class="text-3xl font-extrabold text-forest-900 sm:text-4xl">Chcete být u zrodu Spoluchata.cz?</h2>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                Právě dáváme dohromady první skupiny zájemců. Zadejte svůj e-mail a získejte přednostní právo na výběr lokality a vzory smluv ke stažení zdarma.
-            </p>
-            
-            <div class="bg-white p-6 md:p-8 rounded-3xl border border-gray-100 shadow-xl max-w-md mx-auto">
-                <form id="lead-form-footer" class="space-y-4">
-                    <input type="email" id="footer-email" placeholder="Váš nejlepší e-mail..." required 
-                        class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-forest-600 focus:border-transparent bg-cozy-50 text-base">
-                    <button type="submit" class="w-full bg-forest-600 hover:bg-forest-700 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-sm flex items-center justify-center gap-2">
-                        Registrovat se nezávazně
-                    </button>
-                </form>
-                <div id="success-message" class="hidden text-green-700 bg-green-50 p-4 rounded-xl border border-green-100 mt-4 text-sm font-medium">
-                    🎉 Skvělé! Váš e-mail byl úspěšně zaznamenán. Brzy se ozveme s prvními kroky.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-forest-900 text-forest-100/70 py-12 border-t border-forest-700">
-        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex items-center gap-2">
-                <i data-lucide="home" class="w-5 h-5 text-forest-100"></i>
-                <span class="font-bold text-lg text-white">Spoluchata.cz</span>
-            </div>
-            <p class="text-sm text-center md:text-right">&copy; 2026 Spoluchata.cz. Všechna práva vyhrazena. Postaveno pro komunitní chataření.</p>
-        </div>
-    </footer>
-
-    <!-- LOGIKA PRO IKONY A FUNKČNÍ SBĚR EMAILŮ (Web3Forms) -->
-    <script>
-        // Inicializace ikon Lucide
-        lucide.createIcons();
-
-        // Tvůj ověřený přístupový klíč z Web3Forms
-        const WEB3FORMS_KEY = "9ae4c9a3-2724-4a93-9838-efdf3c44f9cc";
-
-        async function submitToWeb3Forms(email, formElement, successMessageElement) {
-            const formData = new FormData();
-            formData.append("access_key", WEB3FORMS_KEY);
-            formData.append("email", email);
-            formData.append("subject", "Nový zájemce o Spoluchata.cz!");
-            formData.append("from_name", "Web Spoluchata.cz");
-
-            try {
-                const response = await fetch("https://api.web3forms.com/submit", {
-                    method: "POST",
-                    body: formData
-                });
-
-                const result = await response.json();
-
-                if (result.success) {
-                    // Úspěšně odesláno
-                    if (successMessageElement) {
-                        successMessageElement.classList.remove('hidden');
-                        formElement.classList.add('hidden');
-                    } else {
-                        alert('Skvělé! Váš e-mail byl úspěšně zaznamenán. Brzy se ozveme.');
-                        formElement.reset();
-                    }
-                } else {
-                    alert('Něco se nepovedlo. Zkuste to prosím znovu nebo nás kontaktujte.');
-                }
-            } catch (error) {
-                console.error("Chyba při odesílání:", error);
-                alert('Chyba spojení. Zkontrolujte připojení k internetu.');
-            }
-        }
-
-        // Formulář v HERO sekci
-        document.getElementById('lead-form-hero').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const emailInput = e.target.querySelector('input[type="email"]');
-            if (emailInput && emailInput.value) {
-                submitToWeb3Forms(emailInput.value, e.target, null);
-            }
-        });
-
-        // Formulář v patičce (zobrazuje hezké zelené potvrzení přímo na stránce)
-        document.getElementById('lead-form-footer').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const emailInput = document.getElementById('footer-email');
-            const successMsg = document.getElementById('success-message');
-            if (emailInput && emailInput.value) {
-                submitToWeb3Forms(emailInput.value, e.target, successMsg);
-            }
-        });
-    </script>
-</body>
-</html>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto
